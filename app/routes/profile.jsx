@@ -76,7 +76,15 @@ export default function Profile() {
                 {profile.title} <br />
                 <small className="text-gray-500 text-sm">by {user?.name}</small>
               </h1>
-              <p className="line-clamp-4 text-sm">{profile.body}</p>
+              <p className="peer-checked:line-clamp-none line-clamp-4 text-sm">
+                {profile.body}
+              </p>
+              {profile.body.length > 200 && (
+                <>
+                  <input type="checkbox" id="see-more" className="peer hidden" />
+                  <label htmlFor="see-more" className="cursor-pointer hover:underline relative text-sm before:content-['See_More'] peer-checked:before:content-['See_Less']" />
+                </>
+              )}
             </div>
           </div>
           <Form method="post">
