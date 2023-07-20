@@ -30,6 +30,14 @@ export async function loader({ request }) {
     (res) => res.json()
   );
 
+  if (!session.has("profile")) {
+    return redirect("/sign-up", {
+      headers: {
+        "Set-Cookie": await commitSession(session),
+      },
+    });
+  }
+
   return json(
     {
       profile,
