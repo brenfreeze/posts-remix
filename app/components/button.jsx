@@ -20,9 +20,10 @@ export default function Button({
         type={type}
         className={clsx(
           "flex items-center justify-center px-4 py-2 font-medium rounded-md bg-black border border-black text-white",
-          loading && "cursor-wait",
+          "disabled:cursor-wait disabled:opacity-75",
           className
         )}
+        disabled={loading}
         {...props}
       >
         {loading && <Spinner />}
