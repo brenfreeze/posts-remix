@@ -171,13 +171,12 @@ export default function SignUp() {
               id="is-human"
               name="is-human"
               error={actionData?.errors?.["is-human"]}
-              required
             />
             <div className="flex gap-2">
               <Button type="submit" className="flex-1" loading={isSubmitting}>
                 Sign Up
               </Button>
-              <Button to="home" className="bg-white !text-black">
+              <Button as="link" to="/" className="bg-white !text-black">
                 Go back
               </Button>
             </div>
